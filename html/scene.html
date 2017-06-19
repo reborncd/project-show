@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>走秀网</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			fieldset,
+			legend,
+			input,
+			button,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,img{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			.swiper-container {
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+			}
+			
+			.slider1,
+			.slider2,
+			.slider3,.slider4 {
+				width: 100vw;
+				height: 100vh;
+				background: #f8f3f7;
+			}
+			
+			#start {
+				width: 100vw;
+				height: 100vh;
+			}
+			
+			.slider1 img {
+				width: 100vw;
+				height: 50vh;
+				margin-top: -5px;
+			}
+			.slider2 img{
+				width: 100vw;
+				height: 30vh;
+			}
+			.slider3 img{
+				width: 100vw;
+				height: 30vh;
+			}
+			.slider4 img{
+				width: 100vw;
+				height: 30vh;
+			}
+			.slider4 img:last-child{
+				height: 94px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img id="start" src="img/start.jpg" />
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide slider1">
+					<img class="ani" swiper-animate-effect="rotateInUpLeft" swiper-animate-duration="1.6s" swiper-animate-delay="0.6s" src="img/slider1-top.jpg" />
+					<img class="ani" swiper-animate-effect="rotateInUpRight" swiper-animate-duration="1.6s" swiper-animate-delay="0.6s" src="img/slider1-bottom.jpg" />
+				</div>
+				<div class="swiper-slide slider2">
+					<img class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider2-top.jpg" />
+					<img class="ani" swiper-animate-effect="rollIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider2-middle.jpg" />
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider2-bottom.jpg" />
+				</div>
+				<div class="swiper-slide slider3">
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider3-top.jpg" />
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider3-middle.jpg" />
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider3-bottom.jpg" />
+				</div>
+				<div class="swiper-slide slider4">
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider4-top.jpg" />
+					<img class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider4-middle.jpg" />
+					<img onclick="location.href='index.html'" class="ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0.3s" src="img/slider4-bottom.jpg" />
+				</div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</body>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			direction: 'horizontal',
+			loop: false,
+			// 如果需要分页器
+			pagination: '.swiper-pagination',
+			onInit: function(swiper) { //Swiper2.x的初始化是onFirstInit
+				swiperAnimateCache(swiper); //隐藏动画元素 
+				swiperAnimate(swiper); //初始化完成开始动画
+			},
+			onSlideChangeEnd: function(swiper) {
+				swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+			}
+		})
+		$(function() {
+			setTimeout(function() {
+				$('#start').hide()
+			}, 2000)
+		})
+	</script>
+
+</html>

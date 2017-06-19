@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商品详情</title>
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			fieldset,
+			legend,
+			input,
+			button,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,
+			img {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			@font-face {
+				font-family: 'iconfont';
+				src: url('icons/iconfont.eot');
+				/* IE9*/
+				src: url('icons/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('icons/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('icons/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('icons/iconfont.svg#iconfont') format('svg');
+				/* iOS 4.1- */
+			}
+			
+			header {
+				width: 100vw;
+				height: 2.66rem;
+				line-height: 2.66rem;
+				background: #aa1a19;
+				position: relative;
+				text-align: center;
+			}
+			
+			header h1 {
+				margin-left: 9rem;
+				width: 5rem;
+				font-size: 1.1rem;
+				color: white;
+				text-align: center;
+			}
+			
+			header #cart {
+				display: block;
+				font-family: 'iconfont';
+				position: absolute;
+				right: 0.68rem;
+				top: 0.5rem;
+				width: 3.25rem;
+				height: 1.68rem;
+				line-height: 1.68rem;
+				border-radius: 5px;
+				background: #c70f0d;
+				color: white;
+				text-align: center;
+				font-size: 1rem;
+			}
+			header span{
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: white;
+				font-size: 24px;
+				font-family: 'iconfont';
+			}
+			header span a{
+				color: white;
+			}
+			section img{
+				display: block;
+				width: 90vw;
+				height: 60vh;
+				margin: 0 auto;
+			}
+			section p{
+				width: 90vw;
+				margin:  0 auto;
+				color: #CCCCCC;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>商品资料</h1>
+			<a id="cart" href="cart.html">&#xe61b;</a>
+		</header>
+		<section></section>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			var idnum = location.search.split('=')[1]
+			var a = "<a href='detail.html?dataid=" + idnum + "'>&#xe619;</a>"
+			var span=document.createElement("span")
+			span.innerHTML=a
+			var header = document.getElementsByTagName("header")[0]
+			header.appendChild(span)
+			$.ajax({
+				type: "get",
+				url: " http://datainfo.duapp.com/shopdata/getGoods.php",
+				async: true,
+				dataType: "jsonp",
+				data: { 'goodsID': idnum },
+				success: function(data) {
+					var html ="<img src='"+data[0].goodsListImg+"'/><p>商品名称："+data[0].goodsName+"</p><p>材质：面料：65.5%纤维，34.5%棉，里料：100%聚酯纤维</p><p>产地：中国</p><p>商品编号：后台接口没有提供</p><p>洗涤说明：最高洗涤温度30度，缓和程序，不可漂白，悬挂晾干，熨斗底板最高温度110度，不可干洗</p><p>所属分类："+data[0].className+"</p><p>备注：无配件</p><p>其他：无</p>"
+					$('section').html(html)
+				}
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>购物车</title>
+		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			fieldset,
+			legend,
+			input,
+			button,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,
+			img {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			body {
+				background: #f7f7f7;
+			}
+			
+			@font-face {
+				font-family: 'iconfont';
+				src: url('icons/iconfont.eot');
+				/* IE9*/
+				src: url('icons/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('icons/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('icons/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('icons/iconfont.svg#iconfont') format('svg');
+				/* iOS 4.1- */
+			}
+			
+			#cartnum {
+				position: fixed;
+				z-index: 10;
+				bottom: 2rem;
+				left: 52%;
+				width: 1rem;
+				height: 1rem;
+				font-size: 18px;
+				background: #b01e1e;
+				color: white;
+				line-height: 1rem;
+				text-align: center;
+				border-radius: 1rem;
+			}
+			
+			header {
+				width: 100vw;
+				height: 2.66rem;
+				line-height: 2.66rem;
+				background: #aa1a19;
+				position: relative;
+				text-align: center;
+			}
+			
+			header h1 {
+				margin-left: 9rem;
+				width: 5rem;
+				font-size: 1.1rem;
+				color: white;
+				text-align: center;
+			}
+			
+			header a {
+				display: block;
+				position: absolute;
+				right: 0.68rem;
+				top: 0.5rem;
+				width: 3.25rem;
+				height: 1.68rem;
+				line-height: 1.68rem;
+				border-radius: 5px;
+				background: #c70f0d;
+				color: white;
+				text-align: center;
+				font-size: 1rem;
+			}
+			
+			footer {
+				background: #484850;
+				position: fixed;
+				bottom: 0;
+				width: 100vw;
+				height: 3.125rem;
+				display: flex;
+			}
+			
+			footer a {
+				text-align: center;
+				font-family: 'iconfont';
+				flex: 1;
+				color: white;
+			}
+			
+			footer .active {
+				border-top: 2px solid #d71110;
+			}
+			
+			footer h6 {
+				margin-top: 0.2rem;
+				font-size: 1.5rem;
+			}
+			
+			nav {
+				width: 100vw;
+				height: 10vh;
+				text-align: center;
+				line-height: 10vh;
+				background: #747474;
+				color: white;
+			}
+			
+			nav p {
+				color: white;
+				font-size: 20px;
+			}
+			
+			nav p span {
+				color: #ab1b1b;
+			}
+			
+			section {
+				width: 100vw;
+				background: #f7f7f7;
+			}
+			
+			section dl {
+				width: 100vw;
+				height: 10rem;
+				border-bottom: 2px solid #CCCCCC;
+			}
+			
+			section dl dt {
+				float: left;
+				width: 10rem;
+				height: 10rem;
+			}
+			
+			section dl dt img {
+				border: 1px solid #CCCCCC;
+				width: 8rem;
+				height: 8rem;
+				margin: 1rem;
+			}
+			
+			section dl dd {
+				position: relative;
+				color: #333333;
+				width: 55vw;
+				height: 10rem;
+				float: left;
+			}
+			
+			section dl dd h6 {
+				font-size: 16px;
+				font-weight: 100;
+				margin-top: 1rem;
+			}
+			
+			section dl dd span {
+				display: inline-block;
+				margin: 0.5rem 0;
+			}
+			
+			section dl dd span b {
+				font-weight: 100;
+				color: #aa1a1a;
+			}
+			
+			section dl dd p button {
+				width: 2rem;
+				height: 1.5rem;
+				font-size: 20px;
+				background: #676767;
+				color: white;
+				text-align: center;
+				line-height: 1.5rem;
+				border-radius: 5px;
+			}
+			
+			section dl dd p input {
+				width: 2.5rem;
+				height: 1.5rem;
+				border-radius: 5px;
+				border: none;
+				outline: none;
+				text-align: center;
+				background: white;
+			}
+			
+			.deletebtn {
+				position: absolute;
+				font-size: 24px;
+				color: red;
+				top: 1rem;
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<span id="cartnum"></span>
+		<header>
+			<h1>购物车</h1>
+			<a href="cart.html">结算</a>
+		</header>
+		<nav>
+		</nav>
+		<section>
+		</section>
+		<footer>
+			<a href="index.html">
+				<h6>&#xe644;</h6>
+				<span>首页</span>
+			</a>
+			<a href="classify.html">
+				<h6>&#xe692;</h6>
+				<span>分类</span>
+			</a>
+			<a href="cart.html">
+				<h6>&#xe61b;</h6>
+				<span>购物车</span>
+			</a>
+			<a href="info.html">
+				<h6>&#xe646;</h6>
+				<span>我的秀</span>
+			</a>
+			<a href="more.html">
+				<h6>&#xe660;</h6>
+				<span>更多</span>
+			</a>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		function refresh() {
+			var str = sessionStorage.getItem('user')
+			$.ajax({
+				type: "get",
+				url: "http://datainfo.duapp.com/shopdata/getCar.php",
+				async: true,
+				dataType: "jsonp",
+				data: { 'userID': str },
+				success: function(data) {
+					console.log(data)
+					var html = ""
+					var totalnum = 0
+					var totalprice = 0
+					for(var i = 0; i < data.length; i++) {
+						totalnum += Number(data[i].number)
+						totalprice += Number(data[i].number) * Number(data[i].price)
+						html += "<dl><dt><img src='" + data[i].goodsListImg + "'/></dt><dd dataid='" + data[i].goodsID + "'><h6>" + data[i].goodsName + "</h6><span>单价:<b>" + data[i].price + "</b></span><p dataid='" + data[i].goodsID + "'>数量:<button class='sub'>-</button><input class='val' type='text'/ value='" + data[i].number + "'><button class='add'>+</button></p><a class='deletebtn'>X</a></dd></dl>"
+					}
+					$('section').html(html)
+					if(data.length == 0) {
+						$('#cartnum').hide()
+					} else {
+						$('#cartnum').show()
+						$('#cartnum').html(data.length)
+					}
+					var nav = "<p>商品数量：" + totalnum + "应付金额(不含运费)<span>￥" + totalprice + "</span></p>"
+					$('nav').html(nav)
+					$('.deletebtn').each(function(i){
+						$('.deletebtn').on('tap',function(){
+						var id = $(this).parent().attr('dataid')
+						$.ajax({
+								type: "get",
+								url: "http://datainfo.duapp.com/shopdata/updatecar.php",
+								async: true,
+								data: { userID: str, goodsID: id, number: 0 },
+								success: function(data) {
+									//console.log(data)
+								}
+						});
+						refresh()
+					})
+					})
+					
+					$('.sub').each(function(i) {
+						var num = $('.val').eq(i).val()
+						$('.sub').eq(i).on('tap', function() {
+							num--
+							console.log(num)
+							var id = $(this).parent().attr('dataid')
+							$.ajax({
+								type: "get",
+								url: "http://datainfo.duapp.com/shopdata/updatecar.php",
+								async: true,
+								data: { userID: str, goodsID: id, number: num },
+								success: function(data) {
+									//console.log(data)
+								}
+							});
+							refresh()
+							//$('.val').eq(i).val(num)
+						})
+						$('.add').eq(i).on('tap', function() {
+							num++
+							console.log(num)
+							console.log($('.val').eq(i).val())
+							var id = $(this).parent().attr('dataid')
+							$.ajax({
+								type: "get",
+								url: "http://datainfo.duapp.com/shopdata/updatecar.php",
+								async: true,
+								data: { userID: str, goodsID: id, number: num },
+								success: function(data) {
+									//console.log(data)
+								}
+							});
+							refresh()
+							//$('.val').eq(i).val(num)
+						})
+					})
+				}
+			})
+		}
+		window.onload = function() {
+			refresh();
+
+		}
+	</script>
+
+</html>

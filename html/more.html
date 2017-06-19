@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>更多</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			fieldset,
+			legend,
+			input,
+			button,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,
+			img {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				color: #333333;
+				text-decoration: none;
+			}
+			
+			ul,
+			ol {
+				list-style: none;
+			}
+			
+			body {
+				background: #f3f4f6;
+			}
+			
+			@font-face {
+				font-family: 'iconfont';
+				src: url('icons/iconfont.eot');
+				/* IE9*/
+				src: url('icons/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('icons/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('icons/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('icons/iconfont.svg#iconfont') format('svg');
+			}
+			
+			header {
+				width: 100vw;
+				height: 2.66rem;
+				line-height: 2.66rem;
+				background: #aa1a19;
+				position: relative;
+				text-align: center;
+			}
+			
+			header h1 {
+				margin-left: 9rem;
+				width: 5rem;
+				font-size: 1.1rem;
+				color: white;
+				text-align: center;
+			}
+			section ul li{
+				display: none;
+				font-size: 36px;
+				width: 100vw;
+				height:20vh ;
+				line-height: 20vh;
+				border-bottom: 1px solid #C70F0D;
+			}
+			section ul li a{
+				display: block;
+				width: 100vw;
+				height:20vh ;
+			}
+			section ul li span{
+				color: #CCCCCC;
+				font-size: 66px;
+				float: right;
+			}
+			footer {
+				background: #484850;
+				position: absolute;
+				bottom: 0;
+				width: 100vw;
+				height: 3.125rem;
+				display: flex;
+			}
+			
+			footer a {
+				text-align: center;
+				font-family: 'iconfont';
+				flex: 1;
+				color: white;
+			}
+			footer .active {
+				border-top: 2px solid #d71110;
+			}
+			
+			footer h6 {
+				margin-top: 0.2rem;
+				font-size: 1.5rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>更多</h1>
+		</header>
+		<section>
+			<ul>
+				<li><a href="login.html">登录<span>&gt;</span></a></li>
+				<li><a href="register.html">注册<span>&gt;</span></a></li>
+				<li><a href="lottory.html">转盘抽奖<span>&gt;</span></a></li>
+				<li><a href="">注销<span>&gt;</span></a></li>
+			</ul>
+		</section>
+		<footer>
+			<a href="index.html">
+				<h6>&#xe644;</h6>
+				<span>首页</span>
+			</a>
+			<a href="classify.html">
+				<h6>&#xe692;</h6>
+				<span>分类</span>
+			</a>
+			<a href="cart.html">
+				<h6>&#xe61b;</h6>
+				<span>购物车</span>
+			</a>
+			<a href="info.html">
+				<h6>&#xe646;</h6>
+				<span>我的秀</span>
+			</a>
+			<a href="more.html">
+				<h6>&#xe660;</h6>
+				<span>更多</span>
+			</a>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		var str=sessionStorage.getItem('user')
+		var aLi=document.getElementsByTagName('li')
+		if(str==undefined){
+			aLi[0].style.display='block'
+			aLi[1].style.display='block'
+			aLi[2].style.display='block'
+		}else{
+			aLi[2].style.display='block'
+			aLi[3].style.display='block'
+		}
+		aLi[3].onclick=function(){
+			sessionStorage.clear()
+		}
+	</script>
+</html>

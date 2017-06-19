@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>商品详情</title>
+		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			fieldset,
+			legend,
+			input,
+			button,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,
+			img {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			@font-face {
+				font-family: 'iconfont';
+				src: url('icons/iconfont.eot');
+				/* IE9*/
+				src: url('icons/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('icons/iconfont.woff') format('woff'), /* chrome、firefox */
+				url('icons/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('icons/iconfont.svg#iconfont') format('svg');
+				/* iOS 4.1- */
+			}
+			
+			header {
+				width: 100vw;
+				height: 2.66rem;
+				line-height: 2.66rem;
+				background: #aa1a19;
+				position: relative;
+				text-align: center;
+			}
+			
+			header h1 {
+				margin-left: 9rem;
+				width: 5rem;
+				font-size: 1.1rem;
+				color: white;
+				text-align: center;
+			}
+			
+			header #cart {
+				display: block;
+				font-family: 'iconfont';
+				position: absolute;
+				right: 0.68rem;
+				top: 0.5rem;
+				width: 3.25rem;
+				height: 1.68rem;
+				line-height: 1.68rem;
+				border-radius: 5px;
+				background: #c70f0d;
+				color: white;
+				text-align: center;
+				font-size: 1rem;
+			}
+			
+			#back {
+				color: white;
+				font-size: 24px;
+				font-family: 'iconfont';
+				float: left;
+			}
+			
+			nav {
+				width: 100vw;
+				height: 16rem;
+			}
+			
+			nav .swiper-wrapper {
+				width: 100vw;
+				height: 16rem;
+			}
+			
+			nav .swiper-wrapper img {
+				width: 100%;
+			}
+			
+			section {
+				overflow: hidden;
+				width: 100vw;
+				height: 11rem;
+				background: #f3eff0;
+			}
+			section h6{
+				margin-top: 1rem;
+				text-align: center;
+				font-weight: 100;
+				font-size: 18px;
+				color: #454545;
+			}
+			section p{
+				margin: 1rem 0;
+			}
+			section p span{
+				font-size: 18px;
+				display: inline-block;
+				margin: 0 1rem;
+				color: #c54578;
+			}
+			section p a{
+				font-size: 18px;
+				text-decoration: line-through;
+				color: #454545;
+			}
+			section h5{
+				text-indent: 1rem;
+				font-size: 20px;
+				color: #454545;
+			}
+			#detail {
+				display: block;
+				width: 96vw;
+				text-align: center;
+				padding-left: 2rem;
+				height: 6.5rem;
+				line-height: 6rem;
+				color: #CCCCCC;
+			}
+			
+			#detail .left {
+				float: left;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 1rem;
+				background: #b62222;
+				color: white;
+				text-align: center;
+				line-height: 1rem;
+				font-size: 16px;
+				margin-top: 2.8rem;
+			}
+			
+			#detail .right {
+				margin-right: 1rem;
+				float: right;
+				font-size: 24px;
+			}
+			
+			footer {
+				width: 100vw;
+				height: 5.8rem;
+				padding-top: 0.4rem;
+				background: #a3a3a3;
+			}
+			
+			footer a {
+				display: block;
+				width: 70vw;
+				height: 5rem;
+				margin: 0 auto;
+				line-height: 5rem;
+				text-align: center;
+				border-radius: 10px;
+				background: #b01c1c;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<a id="back" href='classify.html'>&#xe619;</a>
+			<h1>商品资料</h1>
+			<a id="cart" href="cart.html">&#xe61b;</a>
+		</header>
+		<nav>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide slider1">
+					</div>
+					<div class="swiper-slide slider2">
+					</div>
+					<div class="swiper-slide slider3">
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</nav>
+		<section></section>
+		<div id="box">
+			<a id="detail" href="">
+				<span class="left">i</span> 查看商品详情
+				<span class="right">&gt;</span>
+			</a>
+		</div>
+		<footer>
+			<a id="add">添加到购物车</a>
+		</footer>
+	</body>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			direction: 'horizontal',
+			loop: true,
+			autoplay: 3000,
+			// 如果需要分页器
+			pagination: '.swiper-pagination',
+			onInit: function(swiper) { //Swiper2.x的初始化是onFirstInit
+				swiperAnimateCache(swiper); //隐藏动画元素 
+				swiperAnimate(swiper); //初始化完成开始动画
+			},
+			onSlideChangeEnd: function(swiper) {
+				swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+			}
+		})
+		var id = location.search.split('=')[1]
+		var box="<a id='detail' href='detail-more.html?dataid="+id+"'><span class='left'>i</span> 查看商品详情<span class='right'>&gt;</span></a>"
+		$('#box').html(box)
+		$.ajax({
+			type: "get",
+			url: " http://datainfo.duapp.com/shopdata/getGoods.php",
+			async: true,
+			dataType: "jsonp",
+			data: { 'goodsID': id },
+			success: function(data) {
+				var str = data[0].imgsUrl
+				var reg = /^%*$/
+				var arr = str.replace(reg, '$1')
+				var slider1 = "<img src='" + JSON.parse(str)[0] + "'/>"
+				var slider2 = "<img src='" + JSON.parse(str)[1] + "'/>"
+				var slider3 = "<img src='" + JSON.parse(str)[2] + "'/>"
+				$('.slider1').html(slider1)
+				$('.slider2').html(slider2)
+				$('.slider3').html(slider3)
+				var html = ''
+				if(data[i].discount == 0) {
+					data[i].discount = 10
+				}
+				html = "<h6>" + data[0].goodsName + "</h6><p><span>￥" + data[0].price * (data[0].discount / 10) + "</span><a>"+data[0].price+"</a></p><h5>购买人数:"+data[0].buynumber+"</h5>"
+				$('section').html(html)
+			}
+		});
+		$('#add').on('tap',function(){
+			var str=sessionStorage.getItem('user')
+			if(str==undefined){
+				alert('请登录账号')
+				location.href='login.html'
+			}else{
+				$.ajax({
+					type:"get",
+					url:"http://datainfo.duapp.com/shopdata/updatecar.php",
+					async:true,
+					data:{userID:str,goodsID:id,number:1},
+					success:function(data){
+						console.log(data)
+					}
+				});
+			}
+		})
+	</script>
+
+</html>

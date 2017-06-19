@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<link rel="stylesheet" href="css/swiper-3.3.1.min.css" />
+		<script src="js/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>首页</title>
+	</head>
+
+	<body>
+		<header>
+			<h1>走秀网</h1>
+			<a href="cart.html">&#xe61b;</a>
+		</header>
+		<section>
+			<input type="text" placeholder="搜索你需要的商品" />
+			<button>&#xe615;</button>
+			<img class="big" src="img/index.png" />
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide slider1">
+						<img src="img/yikoujia_01.jpg" />
+					</div>
+					<div class="swiper-slide slider2">
+						<img src="img/yikoujia_02.jpg" />
+					</div>
+					<div class="swiper-slide slider3">
+						<img src="img/yikoujia_03.jpg" />
+					</div>
+					<div class="swiper-slide slider4">
+						<img src="img/yikoujia_04.jpg" />
+					</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+		<footer>
+			<a href="index.html">
+				<h6>&#xe644;</h6>
+				<span>首页</span>
+			</a>
+			<a href="classify.html">
+				<h6>&#xe692;</h6>
+				<span>分类</span>
+			</a>
+			<a href="cart.html">
+				<h6>&#xe61b;</h6>
+				<span>购物车</span>
+			</a>
+			<a href="info.html">
+				<h6>&#xe646;</h6>
+				<span>我的秀</span>
+			</a>
+			<a href="more.html">
+				<h6>&#xe660;</h6>
+				<span>更多</span>
+			</a>
+		</footer>
+	</body>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+			direction: 'horizontal',
+			loop: true,
+			autoplay: 3000,
+			// 如果需要分页器
+			pagination: '.swiper-pagination',
+
+			// 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			onInit: function(swiper) { //Swiper2.x的初始化是onFirstInit
+				swiperAnimateCache(swiper); //隐藏动画元素 
+				swiperAnimate(swiper); //初始化完成开始动画
+			},
+			onSlideChangeEnd: function(swiper) {
+				swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+			}
+		})
+	</script>
+
+</html>
